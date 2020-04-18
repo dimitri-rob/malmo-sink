@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 
-$mainFont: "Open Sans", Arial, Helvetica, sans-serif;
-$titleFont: "Lora", "Times New Roman", Times, serif;
+html {
+  font-size: 6.25% !important;
+}
+
+body {
+  font-size: 16rem !important;
+}
