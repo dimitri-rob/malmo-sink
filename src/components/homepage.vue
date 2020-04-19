@@ -1,5 +1,5 @@
 <template>
-  <section class="homepage pages">
+  <section class="homepage">
     <div class="hero is-fullheight homepage__container">
       <div class="columns is-centered is-vcentered">
         <div class="column is-4">
