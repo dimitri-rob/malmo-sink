@@ -1,11 +1,11 @@
 <template>
-  <section class="homepage">
+  <section class="homepage pages">
     <div class="hero is-fullheight homepage__container">
       <div class="columns is-centered is-vcentered">
-        <div class="column is-5">
+        <div class="column is-4">
           <img src="../assets/sink-artwork.jpg" alt="Malmö Sink EP" />
         </div>
-        <div class="column is-1"></div>
+        <div class="column is-2"></div>
         <div class="column is-4">
           <div class="homepage__content">
             <h1 class="homepage__title">{{ title }}</h1>
@@ -26,12 +26,16 @@
 export default {
   data() {
     return {
+      loading: true,
       title: "Sink",
       subtitle: "a listening experience",
       intro:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed finibus felis. Aliquam erat volutpat. Donec quis sagittis eros. Pellentesque ullamcorper, libero id egestas feugiat, mauris ante sodales mauris, quis tristique neque lorem ut elit. Quisque turpis nisi, finibus eget eros at, consectetur aliquet justo. Integer auctor ligula purus, sed pretium urna luctus eget. Donec eu placerat felis, id euismod nisl. Maecenas ut ornare ipsum. Duis sed eleifend nunc.",
       button: "start"
     };
+  },
+  beforeMount() {
+    this.loaded = false;
   }
 };
 </script>

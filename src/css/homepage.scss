@@ -1,19 +1,16 @@
 .homepage {
-  background: #000 url(../assets/page-background.jpg) no-repeat center;
-  background-size: cover;
-  box-sizing: border-box;
-
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  &__loading {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background: rgba($color: #000000, $alpha: 0.6);
-    z-index: 1;
+    height: 100vh;
+    background: #fff;
+    color: #000;
+    font-family: $titleFont;
+    font-size: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
   }
 
   &__container {
@@ -43,7 +40,7 @@
   &__intro {
     color: #e4e4e4;
     margin: 50px 0px;
-    font-size: 16rem;
+    font-size: 14rem;
     font-weight: 300;
   }
 }
