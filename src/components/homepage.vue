@@ -1,6 +1,6 @@
 <template>
-  <section class="homepage">
-    <div class="hero is-fullheight homepage__container">
+  <section class="page">
+    <div class="hero is-fullheight page__container">
       <div class="columns is-centered is-vcentered">
         <div class="column is-4">
           <img src="../assets/sink-artwork.jpg" alt="Malmö Sink EP" />
@@ -42,5 +42,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../css/_variables.scss";
+@import "../css/page.scss";
 @import "../css/homepage.scss";
 </style>
