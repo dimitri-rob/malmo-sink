@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view name="background"></router-view>
+    </transition>
+
+    <main>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </main>
   </div>
 </template>
 
@@ -12,4 +20,5 @@ export default {};
 @import "../src/css/_variables.scss";
 @import "../src/css/main.scss";
 @import "../src/css/fonts.scss";
+@import "../src/css/transitions.scss";
 </style>

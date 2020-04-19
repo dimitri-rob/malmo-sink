@@ -10,6 +10,7 @@ import Homepage from "./components/homepage";
 import Chose from "./components/chose";
 import Track from "./components/track";
 import Ending from "./components/ending.vue";
+import Background from "./components/background.vue";
 
 Vue.use(VueRouter);
 Vue.use(Bulma);
@@ -23,12 +24,12 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      component: Homepage,
+      components: { default: Homepage, background: Background },
       name: "Homepage"
     },
     {
       path: "/chose",
-      component: Chose,
+      components: { default: Chose, background: Background },
       name: "Chose"
     },
     {
@@ -38,7 +39,7 @@ const router = new VueRouter({
     },
     {
       path: "/ending/",
-      component: Ending,
+      components: { default: Ending, background: Background },
       name: "Ending"
     },
     {
