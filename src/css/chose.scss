@@ -1,0 +1,92 @@
+.chose {
+  &__container {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    font-family: $titleFont;
+    font-size: 36rem;
+    color: #fff;
+    margin-bottom: 34px;
+  }
+}
+
+.tracklist {
+  font-family: $mainFont;
+  font-weight: 300;
+
+  &__item {
+    & + & {
+      margin-top: 20px;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    font-size: 22rem;
+    display: inline-flex;
+    align-items: center;
+
+    & sup {
+      font-size: 12rem;
+      margin-right: 5px;
+    }
+
+    &:hover &__place {
+      opacity: 1;
+    }
+  }
+
+  &__place {
+    font-size: 18rem;
+    font-style: italic;
+    color: #e4e4e4;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    margin-top: 3px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 0px;
+      height: 1px;
+      background: #e4e4e4;
+      margin: 0px 10px;
+      transition: width 0.1s ease-in-out;
+    }
+  }
+
+  &__link:hover > &__place {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+
+    &::before {
+      width: 20px;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+}
+
+.trackmap {
+  width: 100%;
+  height: 110vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    background: #000;
+    opacity: 0.6;
+  }
+}

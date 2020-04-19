@@ -13,14 +13,6 @@
     z-index: 20;
   }
 
-  &__container {
-    padding: 20px 0px;
-    box-sizing: border-box;
-    justify-content: center;
-    position: relative;
-    z-index: 10;
-  }
-
   &__title {
     color: #fff;
     font-family: $titleFont;
