@@ -1,3 +1,39 @@
 body {
   font-family: $mainFont;
 }
+
+.btn {
+  font-family: $titleFont;
+  font-size: 30rem;
+  color: #fff;
+  border: #fff 1px solid;
+  padding: 2px 22px 6px 22px;
+  box-sizing: border-box;
+  background: transparent;
+  transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
+
+  &--icon {
+    display: inline-flex;
+    align-items: center;
+
+    & svg {
+      font-size: 22rem;
+      margin-left: 12px;
+      margin-top: 4px;
+      transition: margin-left 0.1s ease-in-out;
+    }
+
+    &:hover {
+      & svg {
+        margin-left: 22px;
+        transition: margin-left 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &:hover {
+    background: #fff;
+    color: #000;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+}
