@@ -8,9 +8,6 @@
 				:nbrPhotos="nbrPhotos"
 				:duration="duration"
 			></Viewer>
-			<h1>track</h1>
-			<div>{{ $route.params.id }}</div>
-			<div>{{ seconds }}</div>
 
 			<div>
 				volume :
@@ -18,13 +15,24 @@
 			</div>
 			<div>{{ volume }}</div>
 
-			<div class="track__oscillo">
+			<div>
+				<input
+					ref="level"
+					type="range"
+					id="levelRange"
+					name="level"
+					min="0.0"
+					max="1.0"
+					step="0.001"
+					v-model="level"
+				/>
+			</div>
+
+			<div class="track__oscillo" :style="'opacity:' + (level + 0.05)">
 				<canvas class="track__oscillo__canvas" ref="canvas"></canvas>
 			</div>
 
-			<div class="duration">
-				<div class="duration__progress" :style="{ width: progressBar + '%' }"></div>
-			</div>
+			<Progress :progressBar="progressBar"></Progress>
 
 			<router-link :to="{ name: 'Homepage' }">Homepage</router-link>
 		</section>
@@ -33,12 +41,14 @@
 
 <script>
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
+import Meyda from "meyda";
 import { Howl, Howler } from "howler";
 import Oscilloscope from "oscilloscope";
 import Viewer from "./_viewer";
+import Progress from "./_progress";
 
 export default {
-	components: { Viewer },
+	components: { Viewer, Progress },
 	data() {
 		return {
 			trackPath: "/static/",
@@ -52,7 +62,8 @@ export default {
 			audioContext: "",
 			scope: "",
 			oscContext: "",
-			ready: false
+			ready: false,
+			level: ""
 		};
 	},
 	beforeMount() {
@@ -94,12 +105,23 @@ export default {
 			);
 			self.audioSource.connect(Howler.ctx.destination);
 
+			const analyzer = Meyda.createMeydaAnalyzer({
+				audioContext: self.audioContext,
+				source: self.audioSource,
+				bufferSize: 512,
+				featureExtractors: ["rms"],
+				callback: features => {
+					self.level = features.rms;
+				}
+			});
+			analyzer.start();
+
 			self.scope = new Oscilloscope(self.audioSource);
 			self.oscContext = self.$refs.canvas.getContext("2d");
 			self.oscContext.imageSmoothingQuality = "high";
-			self.oscContext.lineWidth = 0.4;
+			self.oscContext.lineWidth = 0.2;
 			self.oscContext.canvas.width = screen.width;
-			self.oscContext.canvas.height = screen.height;
+			self.oscContext.canvas.height = 130;
 			self.oscContext.strokeStyle = "#ffffff";
 			self.oscContext.fillStyle = "#ffffff";
 			self.scope.animate(self.oscContext);
@@ -150,37 +172,19 @@ export default {
 	&__oscillo {
 		position: fixed;
 		left: 0;
+		right: 0;
+		margin: 0px auto;
 		top: 0px;
 		width: 100%;
 		height: 100%;
 		z-index: 20;
-		opacity: 0.6;
 		display: flex;
-		justify-content: center;
 		align-items: center;
 
 		&__canvas {
 			width: 100%;
-			height: 100%;
+			height: 130px;
 		}
-	}
-}
-
-.duration {
-	width: 100%;
-	background: transparent;
-	height: 2px;
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-
-	&__progress {
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		background: rgba($color: #fff, $alpha: 0.7);
-		height: 100%;
-		transition: width 1s linear;
 	}
 }
 
