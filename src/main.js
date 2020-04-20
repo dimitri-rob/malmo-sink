@@ -6,11 +6,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import Homepage from "./components/homepage";
-import Chose from "./components/chose";
-import Track from "./components/track";
-import Ending from "./components/ending";
-import Background from "./components/background";
+import Homepage from "./components/page.home";
+import Tracklist from "./components/page.tracklist";
+import Track from "./components/page.track";
+import Ending from "./components/page.ending";
+import Background from "./components/_background";
 
 Vue.use(VueRouter);
 Vue.use(Bulma);
@@ -28,9 +28,9 @@ const router = new VueRouter({
       name: "Homepage"
     },
     {
-      path: "/chose",
-      components: { default: Chose, background: Background },
-      name: "Chose"
+      path: "/tracklist",
+      components: { default: Tracklist, background: Background },
+      name: "Tracklist"
     },
     {
       path: "/track/:id",

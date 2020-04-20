@@ -91,7 +91,7 @@
 import { Howl, Howler } from "howler";
 import Meyda from "meyda";
 import Oscilloscope from "oscilloscope";
-import Viewer from "./viewer";
+import Viewer from "./_viewer";
 
 export default {
 	components: { Viewer },
