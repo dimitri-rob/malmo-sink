@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Homepage from "./components/homepage";
 import Chose from "./components/chose";
 import Track from "./components/track";
-import Ending from "./components/ending.vue";
-import Background from "./components/background.vue";
+import Ending from "./components/ending";
+import Background from "./components/background";
 
 Vue.use(VueRouter);
 Vue.use(Bulma);
