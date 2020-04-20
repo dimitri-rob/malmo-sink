@@ -18,78 +18,22 @@
 			</div>
 			<div>{{ volume }}</div>
 
-			<div>
-				<div class="pulse" :class="pulse"></div>
+			<div class="track__oscillo">
+				<canvas class="track__oscillo__canvas" ref="canvas"></canvas>
 			</div>
 
-			<div>
-				<div>
-					<input
-						ref="level"
-						type="range"
-						id="levelRange"
-						name="level"
-						min="0.0"
-						max="1.0"
-						step="0.001"
-						v-model="level"
-					/>
-				</div>
-				<div>
-					<input
-						ref="spectral"
-						type="range"
-						id="spectralRange"
-						name="spectral"
-						min="0.0"
-						max="1.0"
-						step="0.001"
-						v-model="spectral"
-					/>
-				</div>
-				<div>
-					<input
-						ref="kurto"
-						type="range"
-						id="kurtoRange"
-						name="kurto"
-						min="0.0"
-						max="1.0"
-						step="0.001"
-						v-model="kurto"
-					/>
-				</div>
-				<div>
-					<input
-						ref="Sharpness"
-						type="range"
-						id="SharpnessRange"
-						name="Sharpness"
-						min="0.0"
-						max="1.0"
-						step="0.001"
-						v-model="Sharpness"
-					/>
-				</div>
+			<div class="duration">
+				<div class="duration__progress" :style="{ width: progressBar + '%' }"></div>
 			</div>
 
-			<div>
-				<canvas class="canvas" ref="canvas"></canvas>
-			</div>
-
-			<div>
-				<div class="barre">
-					<div class="duration" :style="{ width: progressBar + '%' }"></div>
-				</div>
-			</div>
 			<router-link :to="{ name: 'Homepage' }">Homepage</router-link>
 		</section>
 	</div>
 </template>
 
 <script>
+import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import { Howl, Howler } from "howler";
-import Meyda from "meyda";
 import Oscilloscope from "oscilloscope";
 import Viewer from "./_viewer";
 
@@ -104,16 +48,10 @@ export default {
 			progressBar: 0,
 			volume: 100,
 			pulse: "",
-			bpm: 117,
 			audioSource: "",
 			audioContext: "",
-			level: "",
-			spectral: "",
-			kurto: "",
-			Sharpness: "",
 			scope: "",
 			oscContext: "",
-			nbrPhotos: "",
 			ready: false
 		};
 	},
@@ -135,7 +73,7 @@ export default {
 			this.nbrPhotos = 5;
 			this.duration = 126;
 		} else if (this.track === "atlas") {
-			this.nbrPhotos = 8;
+			this.nbrPhotos = 10;
 			this.duration = 572.4;
 		}
 	},
@@ -156,46 +94,17 @@ export default {
 			);
 			self.audioSource.connect(Howler.ctx.destination);
 
-			/*const analyzer = Meyda.createMeydaAnalyzer({
-        audioContext: self.audioContext,
-        source: self.audioSource,
-        bufferSize: 512,
-        featureExtractors: [
-          "rms",
-          "spectralFlatness",
-          "spectralKurtosis",
-          "perceptualSharpness"
-        ],
-        callback: features => {
-          self.level = features.rms;
-          self.spectral = features.spectralFlatness;
-          self.kurto = features.spectralKurtosis;
-          self.Sharpness = features.perceptualSharpness;
-        }
-      });
-      analyzer.start();*/
-
 			self.scope = new Oscilloscope(self.audioSource);
 			self.oscContext = self.$refs.canvas.getContext("2d");
 			self.oscContext.imageSmoothingQuality = "high";
 			self.oscContext.lineWidth = 0.4;
-			self.oscContext.canvas.width = screen.width / 1.5;
-			self.oscContext.canvas.height = screen.height / 1.5;
+			self.oscContext.canvas.width = screen.width;
+			self.oscContext.canvas.height = screen.height;
 			self.oscContext.strokeStyle = "#ffffff";
 			self.oscContext.fillStyle = "#ffffff";
 			self.scope.animate(self.oscContext);
 
 			self.progress();
-
-			let interval = (60 / self.bpm) * 1000;
-
-			this.$bpm = setInterval(function() {
-				if (self.pulse === "beat") {
-					self.pulse = "";
-				} else {
-					self.pulse = "beat";
-				}
-			}, interval);
 
 			this.$interval = setInterval(function() {
 				self.count();
@@ -206,7 +115,6 @@ export default {
 		this.sound.on("end", function() {
 			console.log("Finished!");
 			self.progressBar = 100;
-			clearInterval(this.$bpm);
 			clearInterval(this.$interval);
 			this.unload();
 		});
@@ -232,34 +140,48 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .track {
-	background: rgba(0, 0, 0, 0.5);
 	width: 100%;
 	height: 100vh;
-	color: #fff;
-}
+	color: #000;
+	position: relative;
 
-.track a {
-	color: #fff;
-}
+	&__oscillo {
+		position: fixed;
+		left: 0;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 20;
+		opacity: 0.6;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-.barre {
-	width: 100%;
-	background: transparent;
-	height: 8px;
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
+		&__canvas {
+			width: 100%;
+			height: 100%;
+		}
+	}
 }
 
 .duration {
+	width: 100%;
+	background: transparent;
+	height: 2px;
 	position: absolute;
-	top: 0px;
+	bottom: 0px;
 	left: 0px;
-	background: #fff;
-	height: 100%;
-	transition: width 1s linear;
+
+	&__progress {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		background: rgba($color: #fff, $alpha: 0.7);
+		height: 100%;
+		transition: width 1s linear;
+	}
 }
 
 .photo {
