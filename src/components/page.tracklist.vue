@@ -12,6 +12,7 @@
 									:to="{ name: 'Track', params: { id: track.id } }"
 									class="tracklist__link"
 									@mouseover.native="fly(track.gps)"
+									@click.native.prevent="zoom(track.gps)"
 								>
 									<sup>{{ track.nbr }}</sup>
 									<span>{{ track.title }}</span>
@@ -23,7 +24,6 @@
 				</div>
 			</div>
 		</div>
-		<section id="map" class="trackmap" ref="map"></section>
 	</section>
 </template>
 
@@ -69,15 +69,9 @@ export default {
 	},
 	mounted() {
 		let self = this;
+		this.map = this.$parent.$children[1].map;
 
-		mapboxgl.accessToken =
-			"pk.eyJ1IjoiZGltaWMwMCIsImEiOiJjanVsbW1sa2QyMHExM3lwZzlkZHZncTVnIn0.3dx95W4qxNeZyeIcO4uixA";
-		this.map = new mapboxgl.Map({
-			container: "map",
-			style: "mapbox://styles/dimic00/ck9786gib1fib1io31suqdg6i",
-			center: [12.8758884, 55.5702828]
-		});
-		this.map.scrollZoom.disable();
+		console.log(map);
 
 		var bounds = new mapboxgl.LngLatBounds();
 		this.tracks.forEach(function(track) {
@@ -94,6 +88,15 @@ export default {
 				bearing: 0,
 				speed: 0.3,
 				curve: 0.8
+			});
+		},
+		zoom: function(gps) {
+			this.map.flyTo({
+				center: gps,
+				zoom: 10,
+				bearing: 0,
+				speed: 0.5,
+				curve: 1
 			});
 		}
 	}

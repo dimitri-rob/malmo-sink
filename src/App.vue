@@ -1,15 +1,19 @@
 <template>
-  <div id="app">
-    <transition name="fade">
-      <router-view name="background"></router-view>
-    </transition>
+	<div id="app">
+		<transition name="fade">
+			<router-view name="background"></router-view>
+		</transition>
 
-    <main>
-      <transition name="fade">
-        <router-view></router-view>
-      </transition>
-    </main>
-  </div>
+		<transition name="fade">
+			<router-view name="map"></router-view>
+		</transition>
+
+		<main>
+			<transition name="fade">
+				<router-view></router-view>
+			</transition>
+		</main>
+	</div>
 </template>
 
 <script>

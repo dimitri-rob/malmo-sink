@@ -11,6 +11,7 @@ import Tracklist from "./components/page.tracklist";
 import Track from "./components/page.track";
 import Ending from "./components/page.ending";
 import Background from "./components/_background";
+import Map from "./components/_map";
 
 Vue.use(VueRouter);
 Vue.use(Bulma);
@@ -29,12 +30,12 @@ const router = new VueRouter({
     },
     {
       path: "/tracklist",
-      components: { default: Tracklist, background: Background },
+      components: { default: Tracklist, background: Background, map: Map },
       name: "Tracklist"
     },
     {
       path: "/track/:id",
-      component: Track,
+      components: { default: Track, map: Map },
       name: "Track"
     },
     {
