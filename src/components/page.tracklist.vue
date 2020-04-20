@@ -12,7 +12,7 @@
 									:to="{ name: 'Track', params: { id: track.id } }"
 									class="tracklist__link"
 									@mouseover.native="fly(track.gps)"
-									@click.native.prevent="zoom(track.gps)"
+									@click.native="zoom(track.gps)"
 								>
 									<sup>{{ track.nbr }}</sup>
 									<span>{{ track.title }}</span>
@@ -93,10 +93,10 @@ export default {
 		zoom: function(gps) {
 			this.map.flyTo({
 				center: gps,
-				zoom: 10,
+				zoom: 14,
 				bearing: 0,
-				speed: 0.5,
-				curve: 1
+				speed: 0.4,
+				curve: 0.9
 			});
 		}
 	}
