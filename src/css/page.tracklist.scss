@@ -26,11 +26,12 @@
     color: #fff;
     font-size: 22rem;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-end;
 
     & sup {
       font-size: 12rem;
       margin-right: 5px;
+      align-self: flex-start;
     }
 
     &:hover &__place {
@@ -39,7 +40,7 @@
   }
 
   &__place {
-    font-size: 18rem;
+    font-size: 16rem;
     font-style: italic;
     color: #e4e4e4;
     display: inline-flex;
