@@ -5,19 +5,19 @@
 				<div class="hero is-fullheight page__container">
 					<div class="columns is-centered">
 						<div class="column is-two-thirds ending__column">
-							<div>
-								<div class="ending__artwork">
-									<img src="../assets/sink-artwork.jpg" alt="Malmö Sink EP" />
+							<div class="ending__artwork">
+								<img src="../assets/sink-artwork.jpg" alt="Malmö Sink EP" />
+							</div>
+							<div class="ending__content">
+								<h3 class="ending__content__title">{{ epLabel }}</h3>
+								<div class="ending__links">
+									<a v-for="link in epLinks" :href="link.href" :key="link.service" target="_blank">
+										<img :src="link.logo" :alt="link.service" />
+									</a>
 								</div>
-								<div class="ending__content">
-									<h3 class="ending__content__title">{{ epLabel }}</h3>
-									<div class="ending__links">
-										<a v-for="link in epLinks" :href="link.href" :key="link.service">{{ link.service }}</a>
-									</div>
-								</div>
-								<div class="ending__btn">
-									<router-link :to="{ name: 'Tracklist' }" class="btn">{{ button }}</router-link>
-								</div>
+							</div>
+							<div class="ending__btn">
+								<router-link :to="{ name: 'Tracklist' }" class="btn">{{ button }}</router-link>
 							</div>
 						</div>
 					</div>
@@ -59,23 +59,28 @@ export default {
 			epLabel: "Sink EP also available on",
 			epLinks: [
 				{
-					service: "bandcamp",
+					service: "Bandcamp",
+					logo: require("../assets/logo-bandcamp.png"),
 					href: "#"
 				},
 				{
-					service: "spotify",
+					service: "Spotify",
+					logo: require("../assets/logo-spotify.png"),
 					href: "#"
 				},
 				{
-					service: "soundcloud",
+					service: "Soundcloud",
+					logo: require("../assets/logo-soundcloud.png"),
 					href: "#"
 				},
 				{
-					service: "applemusic",
+					service: "Apple Music",
+					logo: require("../assets/logo-applemusic.png"),
 					href: "#"
 				},
 				{
-					service: "deezer",
+					service: "Deezer",
+					logo: require("../assets/logo-deezer.png"),
 					href: "#"
 				}
 			],
