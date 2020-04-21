@@ -16,7 +16,7 @@
 									</div>
 								</div>
 								<div class="ending__btn">
-									<router-link :to="{ name: 'Chose' }" class="btn">{{ button }}</router-link>
+									<router-link :to="{ name: 'Tracklist' }" class="btn">{{ button }}</router-link>
 								</div>
 							</div>
 						</div>
