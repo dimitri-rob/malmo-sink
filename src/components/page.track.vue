@@ -99,7 +99,7 @@ export default {
 			self.scope = new Oscilloscope(self.audioSource);
 			self.oscContext = self.$refs.canvas.getContext("2d");
 			self.oscContext.imageSmoothingQuality = "high";
-			self.oscContext.lineWidth = 0.2;
+			self.oscContext.lineWidth = 0.4;
 			self.oscContext.canvas.width = screen.width;
 			self.oscContext.canvas.height = 130;
 			self.oscContext.strokeStyle = "#ffffff";
