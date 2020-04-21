@@ -52,15 +52,15 @@ export default {
 					nbr: "02",
 					title: "Wander",
 					id: "wander",
-					place: "Sequoia National Park",
-					gps: [-118.8632025, 36.4852393]
+					place: "Death Valley",
+					gps: [-118.1709797, 36.4799698]
 				},
 				{
 					nbr: "03",
 					title: "Boreal",
 					id: "boreal",
-					place: "Death Valley",
-					gps: [-118.1709797, 36.4799698]
+					place: "Sequoia National Park",
+					gps: [-118.8632025, 36.4852393]
 				},
 				{
 					nbr: "04",
