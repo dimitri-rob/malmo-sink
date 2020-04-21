@@ -45,7 +45,7 @@ export default {
 	},
 	mounted() {
 		const self = this;
-		this.timePerImg = Math.round(this.duration / this.nbrPhotos);
+		this.timePerImg = Math.round(this.duration / (this.nbrPhotos + 1));
 		this.timePerScale = Math.round(this.timePerImg * 2);
 		self.currentImage++;
 
