@@ -9,24 +9,7 @@
 				:duration="duration"
 			></Viewer>
 
-			<div>
-				volume :
-				<input type="range" name id min="0" max="100" v-model="volume" @change="volumeChange" />
-			</div>
-			<div>{{ volume }}</div>
-
-			<div>
-				<input
-					ref="level"
-					type="range"
-					id="levelRange"
-					name="level"
-					min="0.0"
-					max="1.0"
-					step="0.001"
-					v-model="level"
-				/>
-			</div>
+			<Control></Control>
 
 			<div class="track__oscillo" :style="'opacity:' + (level + 0.05)">
 				<canvas class="track__oscillo__canvas" ref="canvas"></canvas>
@@ -40,15 +23,15 @@
 </template>
 
 <script>
-import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import Meyda from "meyda";
 import { Howl, Howler } from "howler";
 import Oscilloscope from "oscilloscope";
 import Viewer from "./_viewer";
 import Progress from "./_progress";
+import Control from "./_control";
 
 export default {
-	components: { Viewer, Progress },
+	components: { Viewer, Progress, Control },
 	data() {
 		return {
 			trackPath: "/static/",
@@ -56,7 +39,6 @@ export default {
 			sound: "",
 			seconds: 1,
 			progressBar: 0,
-			volume: 100,
 			pulse: "",
 			audioSource: "",
 			audioContext: "",
@@ -152,9 +134,6 @@ export default {
 		progress: function() {
 			return (this.progressBar = (this.seconds * 100) / this.duration);
 		},
-		volumeChange: function() {
-			return Howler.volume(this.volume / 100);
-		},
 		testouille: function() {
 			return (this.test = true);
 		}
@@ -186,38 +165,5 @@ export default {
 			height: 130px;
 		}
 	}
-}
-
-.photo {
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	height: 100vh;
-	z-index: -1;
-	filter: grayscale(1);
-}
-
-.photo img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-}
-
-.pulse {
-	width: 50px;
-	height: 50px;
-	background: blue;
-	display: none;
-}
-
-.pulse.beat {
-	background: red;
-}
-
-.canvas {
-	width: 100%;
-	height: 100vh;
 }
 </style>

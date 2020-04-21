@@ -3,7 +3,12 @@ import VueRouter from "vue-router";
 import App from "./App.vue";
 import Bulma from "bulma";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faSlash,
+  faVolumeUp
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import Homepage from "./components/page.home";
@@ -11,11 +16,10 @@ import Tracklist from "./components/page.tracklist";
 import Track from "./components/page.track";
 import Ending from "./components/page.ending";
 import Background from "./components/_background";
-import Map from "./components/_map";
 
 Vue.use(VueRouter);
 Vue.use(Bulma);
-library.add(faAngleRight);
+library.add(faAngleLeft, faAngleRight, faSlash, faVolumeUp);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
@@ -30,12 +34,12 @@ const router = new VueRouter({
     },
     {
       path: "/tracklist",
-      components: { default: Tracklist, background: Background, map: Map },
+      components: { default: Tracklist, background: Background },
       name: "Tracklist"
     },
     {
       path: "/track/:id",
-      components: { default: Track, map: Map },
+      components: { default: Track },
       name: "Track"
     },
     {

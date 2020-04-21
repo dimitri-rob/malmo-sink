@@ -1,0 +1,57 @@
+.control {
+  position: fixed;
+  top: 24px;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 34px;
+  z-index: 30;
+
+  &__back {
+    color: #fff;
+    font-size: 14rem;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.1s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+
+    & svg {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      color: #fff;
+      opacity: 0.8;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  &__volume {
+    &__icon {
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      display: block;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.1s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      & .svg-inline--fa {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__input {
+      display: none;
+    }
+  }
+}
