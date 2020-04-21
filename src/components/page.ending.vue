@@ -87,7 +87,7 @@ export default {
 			title: "Crédits",
 			credits: [
 				{
-					title: "music : Malmö",
+					title: "Music : Malmö",
 					key: "music",
 					links: [
 						{
@@ -105,7 +105,7 @@ export default {
 					]
 				},
 				{
-					title: "photo : Arthur Redler",
+					title: "Photos : Arthur Redler",
 					key: "photo",
 					links: [
 						{
@@ -119,7 +119,7 @@ export default {
 					]
 				},
 				{
-					title: "artwork : Gloriakitsune",
+					title: "Artwork : Gloriakitsune",
 					key: "artwork",
 					links: [
 						{
