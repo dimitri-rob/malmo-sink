@@ -16,8 +16,6 @@
 			</div>
 
 			<Progress :progressBar="progressBar"></Progress>
-
-			<router-link :to="{ name: 'Homepage' }">Homepage</router-link>
 		</section>
 	</div>
 </template>
@@ -121,6 +119,7 @@ export default {
 			self.progressBar = 100;
 			clearInterval(this.$interval);
 			this.unload();
+			self.goToEnding();
 		});
 	},
 	beforeDestroy() {
@@ -133,6 +132,9 @@ export default {
 		},
 		progress: function() {
 			return (this.progressBar = (this.seconds * 100) / this.duration);
+		},
+		goToEnding: function() {
+			return this.$router.push({ name: "Ending" });
 		}
 	}
 };
