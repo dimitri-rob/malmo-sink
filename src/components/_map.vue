@@ -16,7 +16,8 @@ export default {
 		this.map = new mapboxgl.Map({
 			container: "map",
 			style: "mapbox://styles/dimic00/ck9786gib1fib1io31suqdg6i",
-			center: [12.8758884, 55.5702828]
+			center: [-120.6290235, 35.4196099],
+			zoom: 5
 		});
 		this.map.scrollZoom.disable();
 	}
