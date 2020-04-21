@@ -42,9 +42,6 @@ export default {
 			volume: 1
 		};
 	},
-	mounted() {
-		console.log(this);
-	},
 	methods: {
 		volumeChange: function(level) {
 			Howler.volume(level);
