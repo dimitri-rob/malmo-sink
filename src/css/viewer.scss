@@ -13,7 +13,7 @@
     height: 100vh;
     margin-bottom: 4px;
     animation-name: zoomOut;
-    animation-timing-function: linear;
+    animation-timing-function: ease-out;
     animation-fill-mode: both;
     animation-play-state: running;
     transform: scale(1.8);
@@ -52,7 +52,7 @@
     transform: scale(1.8);
     opacity: 0;
   }
-  75% {
+  64% {
     opacity: 1;
   }
   to {
