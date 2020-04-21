@@ -75,9 +75,6 @@ export default {
 	mounted() {
 		let self = this;
 		this.map = this.$children[0].map;
-
-		console.log(this.$children[0].map);
-
 		var bounds = new mapboxgl.LngLatBounds();
 		this.tracks.forEach(function(track) {
 			bounds.extend(track.gps);
