@@ -141,28 +141,5 @@ export default {
 </script>
 
 <style lang="scss">
-.track {
-	width: 100%;
-	height: 100vh;
-	color: #000;
-	position: relative;
-
-	&__oscillo {
-		position: fixed;
-		left: 0;
-		right: 0;
-		margin: 0px auto;
-		top: 0px;
-		width: 100%;
-		height: 100%;
-		z-index: 20;
-		display: flex;
-		align-items: center;
-
-		&__canvas {
-			width: 100%;
-			height: 130px;
-		}
-	}
-}
+@import "../css/page.track.scss";
 </style>
