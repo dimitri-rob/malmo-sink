@@ -64,7 +64,7 @@ export default {
 			this.nbrPhotos = 5;
 			this.duration = 126;
 		} else if (this.track === "atlas") {
-			this.nbrPhotos = 10;
+			this.nbrPhotos = 9;
 			this.duration = 572.4;
 		}
 	},
