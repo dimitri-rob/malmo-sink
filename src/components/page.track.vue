@@ -133,9 +133,6 @@ export default {
 		},
 		progress: function() {
 			return (this.progressBar = (this.seconds * 100) / this.duration);
-		},
-		testouille: function() {
-			return (this.test = true);
 		}
 	}
 };
