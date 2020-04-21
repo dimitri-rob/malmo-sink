@@ -8,14 +8,8 @@
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 
 export default {
-	data() {
-		return {
-			pouet: "test"
-		};
-	},
 	mounted() {
-		const test = "pouet";
-		let self = this.$root.$children;
+		//let self = this.$root.$children;
 
 		mapboxgl.accessToken =
 			"pk.eyJ1IjoiZGltaWMwMCIsImEiOiJjanVsbW1sa2QyMHExM3lwZzlkZHZncTVnIn0.3dx95W4qxNeZyeIcO4uixA";

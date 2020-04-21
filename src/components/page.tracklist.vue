@@ -1,5 +1,6 @@
 <template>
 	<section class="page">
+		<backgroundMap></backgroundMap>
 		<div class="hero is-fullheight page__container chose__container">
 			<div class="columns is-centered is-vcentered">
 				<div class="column is-10">
@@ -29,8 +30,12 @@
 
 <script>
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
+import backgroundMap from "./_map";
 
 export default {
+	components: {
+		backgroundMap
+	},
 	data() {
 		return {
 			title: "Chose track",
@@ -69,9 +74,9 @@ export default {
 	},
 	mounted() {
 		let self = this;
-		this.map = this.$parent.$children[1].map;
+		this.map = this.$children[0].map;
 
-		console.log(map);
+		console.log(this.$children[0].map);
 
 		var bounds = new mapboxgl.LngLatBounds();
 		this.tracks.forEach(function(track) {

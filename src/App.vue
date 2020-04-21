@@ -4,10 +4,6 @@
 			<router-view name="background"></router-view>
 		</transition>
 
-		<transition name="fade">
-			<router-view name="map"></router-view>
-		</transition>
-
 		<main>
 			<transition name="fade">
 				<router-view></router-view>
