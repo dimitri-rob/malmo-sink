@@ -1,5 +1,5 @@
 <template>
-  <section class="page">
+  <section class="page container">
     <div class="columns">
       <div class="column">
         <div class="hero is-fullheight page__container">
