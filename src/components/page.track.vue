@@ -47,8 +47,7 @@ export default {
       scope: "",
       oscContext: "",
       ready: false,
-      level: "",
-      ios: false
+      level: ""
     };
   },
   beforeMount() {
