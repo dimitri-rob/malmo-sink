@@ -86,40 +86,44 @@ export default {
       if (iOS) {
         self.ios = iOS;
       } else {
-        this.play();
+        console.log("");
       }
+
+      this.play();
     });
 
     this.sound.on("play", function() {
       console.log("Start!");
       self.ready = true;
 
-      self.audioContext = Howler.ctx;
-      self.audioSource = self.audioContext.createMediaElementSource(
-        this._sounds[0]._node
-      );
-      self.audioSource.connect(Howler.ctx.destination);
+      if (!iOS) {
+        self.audioContext = Howler.ctx;
+        self.audioSource = self.audioContext.createMediaElementSource(
+          this._sounds[0]._node
+        );
+        self.audioSource.connect(Howler.ctx.destination);
 
-      const analyzer = Meyda.createMeydaAnalyzer({
-        audioContext: self.audioContext,
-        source: self.audioSource,
-        bufferSize: 512,
-        featureExtractors: ["rms"],
-        callback: features => {
-          self.level = features.rms;
-        }
-      });
-      analyzer.start();
+        const analyzer = Meyda.createMeydaAnalyzer({
+          audioContext: self.audioContext,
+          source: self.audioSource,
+          bufferSize: 512,
+          featureExtractors: ["rms"],
+          callback: features => {
+            self.level = features.rms;
+          }
+        });
+        analyzer.start();
 
-      self.scope = new Oscilloscope(self.audioSource);
-      self.oscContext = self.$refs.canvas.getContext("2d");
-      self.oscContext.imageSmoothingQuality = "high";
-      self.oscContext.lineWidth = 0.4;
-      self.oscContext.canvas.width = screen.width;
-      self.oscContext.canvas.height = 130;
-      self.oscContext.strokeStyle = "#ffffff";
-      self.oscContext.fillStyle = "#ffffff";
-      self.scope.animate(self.oscContext);
+        self.scope = new Oscilloscope(self.audioSource);
+        self.oscContext = self.$refs.canvas.getContext("2d");
+        self.oscContext.imageSmoothingQuality = "high";
+        self.oscContext.lineWidth = 0.4;
+        self.oscContext.canvas.width = screen.width;
+        self.oscContext.canvas.height = 130;
+        self.oscContext.strokeStyle = "#ffffff";
+        self.oscContext.fillStyle = "#ffffff";
+        self.scope.animate(self.oscContext);
+      }
 
       self.progress();
 
