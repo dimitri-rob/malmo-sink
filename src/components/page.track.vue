@@ -1,8 +1,6 @@
 <template>
   <div>
     <section class="track">
-      <Overlay :track="track" :place="place" v-if="ios"></Overlay>
-
       <Viewer
         v-if="ready"
         :track="track"
@@ -83,12 +81,6 @@ export default {
     let self = this;
 
     this.sound.on("load", function() {
-      if (iOS) {
-        self.ios = iOS;
-      } else {
-        console.log("");
-      }
-
       this.play();
     });
 
