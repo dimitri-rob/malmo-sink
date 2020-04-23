@@ -6,10 +6,6 @@
           <h1 class="trackOverlay__track">{{ track }}</h1>
           <h2 class="trackOverlay__place">{{ place }}</h2>
         </div>
-
-        <div class="trackOverlay__btn">
-          <button @click="play" class="btn">Play</button>
-        </div>
       </div>
     </section>
   </transition>
@@ -22,12 +18,6 @@ export default {
     return {
       overlay: true
     };
-  },
-  methods: {
-    play: function() {
-      this.overlay = false;
-      return this.$parent.sound.play();
-    }
   }
 };
 </script>

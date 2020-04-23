@@ -4,7 +4,7 @@
   left: 0px;
   width: 100%;
   height: 100vh;
-  background: rgba($color: #000000, $alpha: 0.5);
+  background: #000;
   z-index: 40;
   display: flex;
   justify-content: center;
@@ -43,10 +43,5 @@
       display: block;
       margin: 4px auto 8px auto;
     }
-  }
-
-  &__btn {
-    text-align: center;
-    margin-top: 80px;
   }
 }

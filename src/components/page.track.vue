@@ -1,23 +1,22 @@
 <template>
-  <div>
-    <section class="track">
-      <Viewer
-        v-if="ready"
-        :track="track"
-        :path="trackPath"
-        :nbrPhotos="nbrPhotos"
-        :duration="duration"
-      ></Viewer>
+  <section class="track">
+    <Overlay v-if="!ready" :track="track" :place="place"></Overlay>
+    <Viewer
+      v-if="ready"
+      :track="track"
+      :path="trackPath"
+      :nbrPhotos="nbrPhotos"
+      :duration="duration"
+    ></Viewer>
 
-      <Control></Control>
+    <Control></Control>
 
-      <div class="track__oscillo" :style="'opacity:' + (level + 0.05)">
-        <canvas class="track__oscillo__canvas" ref="canvas"></canvas>
-      </div>
+    <div class="track__oscillo" :style="'opacity:' + (level + 0.05)">
+      <canvas class="track__oscillo__canvas" ref="canvas"></canvas>
+    </div>
 
-      <Progress :progressBar="progressBar"></Progress>
-    </section>
-  </div>
+    <Progress :progressBar="progressBar"></Progress>
+  </section>
 </template>
 
 <script>
@@ -51,13 +50,6 @@ export default {
     };
   },
   beforeMount() {
-    this.sound = new Howl({
-      src: [this.trackPath + this.$route.params.id + ".mp3"],
-      autoplay: false,
-      html5: true
-    });
-    Howler.autoSuspend = false;
-
     if (this.track === "sink") {
       this.nbrPhotos = 12;
       this.duration = 631.4;
@@ -78,6 +70,12 @@ export default {
   },
   mounted() {
     let self = this;
+    this.sound = new Howl({
+      src: [this.trackPath + this.$route.params.id + ".mp3"],
+      autoplay: false,
+      html5: true
+    });
+    Howler.autoSuspend = false;
 
     this.sound.on("load", function() {
       this.play();
