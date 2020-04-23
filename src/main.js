@@ -34,7 +34,7 @@ const router = new VueRouter({
     },
     {
       path: "/tracklist",
-      components: { default: Tracklist, background: Background },
+      components: { default: Tracklist },
       name: "Tracklist"
     },
     {
