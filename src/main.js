@@ -15,7 +15,7 @@ import Homepage from "./components/page.home";
 import Tracklist from "./components/page.tracklist";
 import Track from "./components/page.track";
 import Ending from "./components/page.ending";
-import Background from "./components/_background";
+import Background from "./components/block.background.vue";
 
 Vue.use(VueRouter);
 Vue.use(Bulma);

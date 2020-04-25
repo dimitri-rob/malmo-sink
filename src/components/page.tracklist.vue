@@ -34,7 +34,7 @@
 
 <script>
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
-import backgroundMap from "./_map";
+import backgroundMap from "./block.map";
 
 export default {
   components: {

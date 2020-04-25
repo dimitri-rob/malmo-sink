@@ -25,10 +25,10 @@ import { Howl, Howler } from "howler";
 import Oscilloscope from "oscilloscope";
 import iOS from "is-ios";
 
-import Viewer from "./_viewer";
-import Progress from "./_progress";
-import Control from "./_control";
-import Overlay from "./_track-overlay";
+import Viewer from "./block.viewer";
+import Progress from "./block.progress";
+import Control from "./block.control";
+import Overlay from "./block.track.overlay";
 
 export default {
   components: { Viewer, Progress, Control, iOS, Overlay },

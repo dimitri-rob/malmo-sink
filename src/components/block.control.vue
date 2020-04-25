@@ -67,5 +67,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../css/control.scss";
+@import "../css/block.control.scss";
 </style>

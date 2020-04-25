@@ -63,5 +63,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../css/viewer.scss";
+@import "../css/block.viewer.scss";
 </style>

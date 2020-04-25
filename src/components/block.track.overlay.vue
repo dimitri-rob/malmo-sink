@@ -24,6 +24,5 @@ export default {
 
 <style lang="scss">
 @import "../css/_variables.scss";
-@import "../css/track-overlay.scss";
-@import "../css/transitions.scss";
+@import "../css/block.track.overlay.scss";
 </style>
