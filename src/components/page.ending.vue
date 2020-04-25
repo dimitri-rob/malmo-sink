@@ -1,10 +1,10 @@
 <template>
-  <section class="page container">
+  <section class="page container ending" :class="show">
     <div class="columns">
       <div class="column">
         <div class="hero is-fullheight page__container">
           <div class="columns is-centered">
-            <div class="column is-two-thirds ending__column">
+            <div class="column is-two-thirds ending__column ending__fade">
               <div class="ending__artwork">
                 <img src="../assets/sink-artwork.jpg" alt="Malmö Sink EP" />
               </div>
@@ -34,8 +34,8 @@
           </div>
         </div>
       </div>
-      <div class="column is-5">
-        <div class="hero is-fullheight page__container credits">
+      <div class="column is-5 credits ending__fade">
+        <div class="hero is-fullheight page__container">
           <div class="columns is-centered">
             <div class="column is-two-thirds ending__column">
               <div>
@@ -71,6 +71,7 @@
 export default {
   data() {
     return {
+      show: "",
       button: "chose another track",
       epLabel: "Sink EP also available on",
       epLinks: [
@@ -160,6 +161,9 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    this.show = "show";
   }
 };
 </script>
