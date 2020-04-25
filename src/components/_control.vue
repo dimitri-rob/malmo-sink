@@ -1,5 +1,5 @@
 <template>
-  <div class="control">
+  <div class="control" :class="show">
     <router-link class="control__back" :to="{ name: 'Tracklist' }">
       <font-awesome-icon icon="angle-left" />
       {{ back }}
@@ -43,13 +43,17 @@ export default {
     return {
       back: "back",
       volume: 1,
-      ios: false
+      ios: false,
+      show: ""
     };
   },
   beforeMount() {
     if (iOS) {
       this.ios = true;
     }
+  },
+  mounted() {
+    this.show = "show";
   },
   methods: {
     volumeChange: function(level) {
