@@ -6,16 +6,16 @@
           <img
             src="../assets/sink-artwork.jpg"
             alt="Malmö Sink EP"
-            class="homepage__artwork homepage__fade"
+            class="homepage__artwork fadeIn"
           />
         </div>
         <div class="column is-2"></div>
         <div class="column is-4">
           <div class="homepage__content">
-            <h1 class="homepage__title homepage__fade">{{ title }}</h1>
-            <h2 class="homepage__subtitle homepage__fade">{{ subtitle }}</h2>
-            <p class="homepage__intro homepage__fade">{{ intro }}</p>
-            <div class="homepage__btn homepage__fade">
+            <h1 class="homepage__title slideIn">{{ title }}</h1>
+            <h2 class="homepage__subtitle slideIn">{{ subtitle }}</h2>
+            <p class="homepage__intro slideIn">{{ intro }}</p>
+            <div class="homepage__btn slideIn">
               <router-link :to="{ name: 'Tracklist' }" class="btn btn--icon">
                 {{ button }}
                 <font-awesome-icon icon="angle-right" />

@@ -40,23 +40,10 @@
     font-size: 14rem;
     font-weight: 300;
   }
-
-  &__fade {
-    animation-name: fadeIn;
-    animation-duration: 700ms;
-    animation-fill-mode: ease-in-out;
-    animation-play-state: paused;
-    animation-fill-mode: both;
-    opacity: 0;
-  }
 }
 
 .homepage {
   &.show & {
-    &__fade {
-      animation-play-state: running;
-    }
-
     &__artwork {
       animation-delay: 0ms;
     }
@@ -73,16 +60,5 @@
     &__btn {
       animation-delay: 1500ms;
     }
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
   }
 }

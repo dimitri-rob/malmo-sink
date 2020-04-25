@@ -8,11 +8,7 @@
   align-items: center;
   padding: 0px 34px;
   z-index: 30;
-  animation-name: fadeIn;
   animation-delay: 1500ms;
-  animation-fill-mode: both;
-  animation-play-state: paused;
-  animation-duration: 2000ms;
 
   &__back {
     color: #fff;
@@ -58,18 +54,5 @@
     &__input {
       display: none;
     }
-  }
-
-  &.show {
-    animation-play-state: running;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }

@@ -4,7 +4,7 @@
       <div class="column">
         <div class="hero is-fullheight page__container">
           <div class="columns is-centered">
-            <div class="column is-two-thirds ending__column ending__fade">
+            <div class="column is-two-thirds ending__column fadeIn">
               <div class="ending__artwork">
                 <img src="../assets/sink-artwork.jpg" alt="Malmö Sink EP" />
               </div>
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="column is-5 credits ending__fade">
+      <div class="column is-5 credits fadeIn">
         <div class="hero is-fullheight page__container">
           <div class="columns is-centered">
             <div class="column is-two-thirds ending__column">

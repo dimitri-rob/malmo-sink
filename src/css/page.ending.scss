@@ -51,20 +51,6 @@
   &__btn {
     text-align: center;
   }
-
-  &__fade {
-    animation-name: fadeIn;
-    animation-duration: 1000ms;
-    animation-fill-mode: both;
-    animation-timing-function: ease-out;
-    animation-play-state: paused;
-  }
-
-  &.show & {
-    &__fade {
-      animation-play-state: running;
-    }
-  }
 }
 
 .credits {
@@ -115,14 +101,5 @@
         margin: 0px 10px;
       }
     }
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
