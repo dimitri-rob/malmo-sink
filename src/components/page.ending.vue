@@ -79,35 +79,30 @@ export default {
           service: "Bandcamp",
           logo: require("../assets/logo-bandcamp-1x.png"),
           logo2x: require("../assets/logo-bandcamp-2x.png"),
-
-          href: "#"
+          href: "https://hej-malmo.bandcamp.com/album/sink-ep"
         },
         {
           service: "Spotify",
           logo: require("../assets/logo-spotify-1x.png"),
           logo2x: require("../assets/logo-spotify-2x.png"),
-
           href: "#"
         },
         {
           service: "Soundcloud",
           logo: require("../assets/logo-soundcloud-1x.png"),
           logo2x: require("../assets/logo-soundcloud-2x.png"),
-
-          href: "#"
+          href: "https://soundcloud.com/hej-malmo/sets/sink-ep"
         },
         {
           service: "Apple Music",
           logo: require("../assets/logo-applemusic-1x.png"),
           logo2x: require("../assets/logo-applemusic-2x.png"),
-
           href: "#"
         },
         {
           service: "Deezer",
           logo: require("../assets/logo-deezer-1x.png"),
           logo2x: require("../assets/logo-deezer-2x.png"),
-
           href: "#"
         }
       ],
