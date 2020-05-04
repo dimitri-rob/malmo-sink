@@ -73,7 +73,7 @@ export default {
     return {
       show: "",
       button: "chose another track",
-      epLabel: "Sink EP also available on",
+      epLabel: "Sink EP available on",
       epLinks: [
         {
           service: "Bandcamp",
@@ -150,7 +150,7 @@ export default {
             },
             {
               label: "twitter",
-              href: "https://twitter.com/gloriakitsune"
+              href: "https://twitter.com/gloriakiitsune"
             }
           ]
         }
