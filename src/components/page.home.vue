@@ -14,7 +14,13 @@
           <div class="homepage__content">
             <h1 class="homepage__title slideIn">{{ title }}</h1>
             <h2 class="homepage__subtitle slideIn">{{ subtitle }}</h2>
-            <p class="homepage__intro slideIn">{{ intro }}</p>
+            <p class="homepage__intro slideIn">
+              <i>Sink : a listening experience</i> is an immersive listening to
+              Malmö's EP of the same name.<br />
+              The dreaminess and raw melancholy of the sound combines with
+              Arthur Redler's monochrome photos for an introspective escape
+              through wilderness natural sites of United States west coast.
+            </p>
             <div class="homepage__btn slideIn">
               <router-link :to="{ name: 'Tracklist' }" class="btn btn--icon">
                 {{ button }}
@@ -35,8 +41,6 @@ export default {
       loading: true,
       title: "Sink",
       subtitle: "a listening experience",
-      intro:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed finibus felis. Aliquam erat volutpat. Donec quis sagittis eros. Pellentesque ullamcorper, libero id egestas feugiat, mauris ante sodales mauris, quis tristique neque lorem ut elit. Quisque turpis nisi, finibus eget eros at, consectetur aliquet justo. Integer auctor ligula purus, sed pretium urna luctus eget. Donec eu placerat felis, id euismod nisl. Maecenas ut ornare ipsum. Duis sed eleifend nunc.",
       button: "start",
       show: ""
     };
