@@ -1,12 +1,12 @@
 <template>
   <section class="track">
-    <Overlay
+    <TrackLoader
       v-if="!ready"
       :track="track"
       :place="place"
       :nbrPhotos="nbrPhotos"
-      :loading="imgLoad"
-    ></Overlay>
+      :path="trackPath"
+    ></TrackLoader>
 
     <Viewer
       v-if="ready"
@@ -15,17 +15,6 @@
       :nbrPhotos="nbrPhotos"
       :duration="duration"
     ></Viewer>
-
-    <section class="viewerLoader">
-      <clazy-load
-        v-for="photo in nbrPhotos"
-        :key="photo"
-        :src="trackPath + track + '/' + photo + '.jpg'"
-        @load="imgLoading"
-      >
-        <img :src="trackPath + track + '/' + photo + '.jpg'" preload="true" />
-      </clazy-load>
-    </section>
 
     <Control></Control>
 
@@ -44,13 +33,12 @@ import Oscilloscope from "oscilloscope";
 import iOS from "is-ios";
 
 import Viewer from "./block.viewer";
-import ViewerLoader from "./block.viewer.loader.vue";
 import Progress from "./block.progress";
 import Control from "./block.control";
-import Overlay from "./block.track.overlay";
+import TrackLoader from "./block.track.loader";
 
 export default {
-  components: { Viewer, Progress, Control, iOS, Overlay },
+  components: { Viewer, Progress, Control, iOS, TrackLoader },
   data() {
     return {
       trackPath: "/static/",
@@ -65,8 +53,7 @@ export default {
       scope: "",
       oscContext: "",
       ready: false,
-      level: "",
-      imgLoad: 0
+      level: ""
     };
   },
   beforeMount() {
@@ -150,14 +137,6 @@ export default {
     clearInterval(this.sound.$interval);
   },
   methods: {
-    imgLoading: function() {
-      this.imgLoad++;
-      if (this.imgLoad === this.nbrPhotos) {
-        this.ready = true;
-        this.startMusic();
-      }
-      return;
-    },
     startMusic: function() {
       return this.sound.play();
     },
