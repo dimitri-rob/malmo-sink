@@ -14,7 +14,7 @@
     color: #fff;
     width: 338px;
     height: 338px;
-    border: #fff 2px solid;
+    border: rgba(255, 255, 255, 0.5) 2px solid;
     box-sizing: border-box;
     border-radius: 100%;
     margin: 0px auto;
@@ -22,18 +22,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      background: #000;
+      z-index: 5;
+      border-radius: 100%;
+    }
   }
 
   &__track {
     font-family: $titleFont;
     font-size: 40rem;
     text-transform: capitalize;
+    z-index: 10;
   }
 
   &__place {
     font-size: 20rem;
     font-weight: 300;
     font-style: italic;
+    z-index: 10;
 
     &::before {
       content: "";
@@ -43,5 +58,49 @@
       display: block;
       margin: 4px auto 8px auto;
     }
+  }
+
+  &__loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    border-radius: 100%;
+    transform: scale(1.01);
+    overflow: hidden;
+
+    &__progress {
+      width: 0%;
+      height: 100%;
+      background: #fff;
+      transition: width 0.5s linear;
+    }
+  }
+
+  &__message {
+    margin-top: 60px;
+    text-align: center;
+    color: #999;
+    font-size: 14rem;
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }

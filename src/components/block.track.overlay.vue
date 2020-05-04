@@ -5,6 +5,15 @@
         <div class="trackOverlay__infos">
           <h1 class="trackOverlay__track">{{ track }}</h1>
           <h2 class="trackOverlay__place">{{ place }}</h2>
+          <div class="trackOverlay__loader">
+            <div
+              class="trackOverlay__loader__progress"
+              :style="'width:' + (loading * 100) / nbrPhotos + '%;'"
+            ></div>
+          </div>
+        </div>
+        <div class="trackOverlay__message">
+          loading, please wait
         </div>
       </div>
     </section>
@@ -13,7 +22,7 @@
 
 <script>
 export default {
-  props: ["track", "place"],
+  props: ["track", "place", "loading", "nbrPhotos"],
   data() {
     return {
       overlay: true

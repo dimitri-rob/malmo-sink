@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "./App.vue";
+import VueClazyLoad from "vue-clazy-load";
 import Bulma from "bulma";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -18,6 +19,7 @@ import Ending from "./components/page.ending";
 import Background from "./components/block.background.vue";
 
 Vue.use(VueRouter);
+Vue.use(VueClazyLoad);
 Vue.use(Bulma);
 library.add(faAngleLeft, faAngleRight, faSlash, faVolumeUp);
 

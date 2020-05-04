@@ -1,6 +1,13 @@
 <template>
   <section class="track">
-    <Overlay v-if="!ready" :track="track" :place="place"></Overlay>
+    <Overlay
+      v-if="!ready"
+      :track="track"
+      :place="place"
+      :nbrPhotos="nbrPhotos"
+      :loading="imgLoad"
+    ></Overlay>
+
     <Viewer
       v-if="ready"
       :track="track"
@@ -8,6 +15,17 @@
       :nbrPhotos="nbrPhotos"
       :duration="duration"
     ></Viewer>
+
+    <section class="viewerLoader">
+      <clazy-load
+        v-for="photo in nbrPhotos"
+        :key="photo"
+        :src="trackPath + track + '/' + photo + '.jpg'"
+        @load="imgLoading"
+      >
+        <img :src="trackPath + track + '/' + photo + '.jpg'" preload="true" />
+      </clazy-load>
+    </section>
 
     <Control></Control>
 
@@ -26,6 +44,7 @@ import Oscilloscope from "oscilloscope";
 import iOS from "is-ios";
 
 import Viewer from "./block.viewer";
+import ViewerLoader from "./block.viewer.loader.vue";
 import Progress from "./block.progress";
 import Control from "./block.control";
 import Overlay from "./block.track.overlay";
@@ -46,24 +65,25 @@ export default {
       scope: "",
       oscContext: "",
       ready: false,
-      level: ""
+      level: "",
+      imgLoad: 0
     };
   },
   beforeMount() {
     if (this.track === "sink") {
-      this.nbrPhotos = 12;
+      this.nbrPhotos = 13;
       this.duration = 631.4;
       this.place = "Morro Strand State Beach";
     } else if (this.track === "wander") {
-      this.nbrPhotos = 8;
+      this.nbrPhotos = 9;
       this.duration = 441.8;
       this.place = "Death Valley";
     } else if (this.track === "boreal") {
-      this.nbrPhotos = 5;
+      this.nbrPhotos = 4;
       this.duration = 126;
       this.place = "Sequoia National Park";
     } else if (this.track === "atlas") {
-      this.nbrPhotos = 9;
+      this.nbrPhotos = 10;
       this.duration = 572.4;
       this.place = "Grand Canyon";
     }
@@ -77,13 +97,8 @@ export default {
     });
     Howler.autoSuspend = false;
 
-    this.sound.on("load", function() {
-      this.play();
-    });
-
     this.sound.on("play", function() {
       console.log("Start!");
-      self.ready = true;
 
       if (!iOS) {
         self.audioContext = Howler.ctx;
@@ -135,6 +150,17 @@ export default {
     clearInterval(this.sound.$interval);
   },
   methods: {
+    imgLoading: function() {
+      this.imgLoad++;
+      if (this.imgLoad === this.nbrPhotos) {
+        this.ready = true;
+        this.startMusic();
+      }
+      return;
+    },
+    startMusic: function() {
+      return this.sound.play();
+    },
     count: function() {
       return this.seconds++;
     },
