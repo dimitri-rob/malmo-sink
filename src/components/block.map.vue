@@ -25,6 +25,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
 @import "../css/block.map.scss";
 </style>
