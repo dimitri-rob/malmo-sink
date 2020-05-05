@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Malmö — Sink : a listening experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      #loading {
+        font-family: "Lora", "Times New Roman", Times, serif;
+        font-style: italic;
+        color: #ccc;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
+      .ready {
+        opacity: 0;
+        transition: 10s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="loading">
+        loading...
+      </div>
+    </div>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
