@@ -30,7 +30,7 @@ body {
 
 .btn {
   font-family: $titleFont;
-  font-size: 26rem;
+  font-size: 22rem;
   color: #fff;
   border: #fff 1px solid;
   padding: 2px 22px 6px 22px;
@@ -62,5 +62,11 @@ body {
     background: #fff;
     color: #000;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .btn {
+    font-size: 26rem;
   }
 }

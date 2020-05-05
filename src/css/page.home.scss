@@ -49,6 +49,10 @@
     line-height: 1.6em;
     font-weight: 300;
   }
+
+  &__btn {
+    text-align: center;
+  }
 }
 
 .homepage {
@@ -111,6 +115,10 @@
 
     &__intro {
       margin: 50px 0px;
+    }
+
+    &__btn {
+      text-align: left;
     }
   }
 }
