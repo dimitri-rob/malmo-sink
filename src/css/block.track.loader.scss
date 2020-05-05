@@ -12,8 +12,8 @@
 
   &__infos {
     color: #fff;
-    width: 338px;
-    height: 338px;
+    width: 310px;
+    height: 310px;
     border: rgba(255, 255, 255, 0.5) 2px solid;
     box-sizing: border-box;
     border-radius: 100%;
@@ -39,13 +39,13 @@
 
   &__track {
     font-family: $titleFont;
-    font-size: 40rem;
+    font-size: 34rem;
     text-transform: capitalize;
     z-index: 10;
   }
 
   &__place {
-    font-size: 20rem;
+    font-size: 16rem;
     font-weight: 300;
     font-style: italic;
     z-index: 10;
@@ -108,5 +108,22 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .trackLoader {
+    &__infos {
+      width: 338px;
+      height: 338px;
+    }
+
+    &__track {
+      font-size: 40rem;
+    }
+
+    &__place {
+      font-size: 20rem;
+    }
   }
 }
