@@ -3,8 +3,16 @@
   z-index: 10;
 
   &__container {
-    padding: 20px 0px;
+    padding: 20px;
     box-sizing: border-box;
     justify-content: center;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .page {
+    &__container {
+      padding: 20px 0px;
+    }
   }
 }

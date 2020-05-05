@@ -15,28 +15,36 @@
 
   &__artwork {
     display: block;
-    width: 100%;
+    width: 200px;
+    margin: 0px auto;
+  }
+
+  &__content {
+    margin: 40px auto 0px auto;
+    max-width: 400px;
   }
 
   &__title {
     color: #fff;
     font-family: $titleFont;
-    font-size: 50rem;
+    font-size: 38rem;
     font-weight: 400;
     line-height: 1em;
+    text-align: center;
   }
 
   &__subtitle {
     color: #fff;
-    font-size: 22rem;
+    font-size: 18rem;
     font-weight: 400;
     font-style: italic;
     margin: 0px;
+    text-align: center;
   }
 
   &__intro {
     color: #e4e4e4;
-    margin: 50px 0px;
+    margin: 34px 0px;
     font-size: 16rem;
     line-height: 1.6em;
     font-weight: 300;
@@ -60,6 +68,49 @@
 
     &__btn {
       animation-delay: 1500ms;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .homepage {
+    &__artwork {
+      width: 280px;
+    }
+
+    &__title {
+      font-size: 44rem;
+    }
+
+    &__subtitle {
+      font-size: 20rem;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .homepage {
+    &__artwork {
+      width: 100%;
+    }
+
+    &__content {
+      margin: 0px;
+      max-width: 100%;
+    }
+
+    &__title {
+      font-size: 50rem;
+      text-align: left;
+    }
+
+    &__subtitle {
+      font-size: 22rem;
+      text-align: left;
+    }
+
+    &__intro {
+      margin: 50px 0px;
     }
   }
 }
