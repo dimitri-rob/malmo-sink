@@ -13,7 +13,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  beforeCreate() {
+    document.getElementById("loading").classList.add("loaded");
+  }
+};
 </script>
 
 <style lang="scss">
