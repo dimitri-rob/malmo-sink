@@ -45,9 +45,6 @@ export default {
       show: ""
     };
   },
-  beforeMount() {
-    this.loaded = false;
-  },
   mounted() {
     this.show = "show";
   }
