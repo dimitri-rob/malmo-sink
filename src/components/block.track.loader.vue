@@ -46,7 +46,7 @@ export default {
     imgLoading: function() {
       this.imgLoad++;
       if (this.imgLoad === this.nbrPhotos) {
-        //this.$parent.ready = true;
+        this.$parent.ready = true;
         this.$parent.startMusic();
       }
       return;
