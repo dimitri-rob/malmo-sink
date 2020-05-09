@@ -14,13 +14,19 @@
           <div class="homepage__content">
             <h1 class="homepage__title slideIn">{{ title }}</h1>
             <h2 class="homepage__subtitle slideIn">{{ subtitle }}</h2>
-            <p class="homepage__intro slideIn">
-              <i>Sink : a listening experience</i> is an immersive listening to
-              Malmö's EP of the same name.<br />
-              The dreaminess and raw melancholy of the sound combines with
-              Arthur Redler's monochrome photos for an introspective escape
-              through wilderness natural sites of United States west coast.
-            </p>
+            <div class="homepage__intro slideIn">
+              <p>
+                The dreaminess and raw melancholy of Malmö's four musical pieces
+                combines with Arthur Redler's deeply naturals monochrome
+                photographs for an introspective escape through wilderness
+                natural sites of United States west coast.
+              </p>
+              <p>
+                A whole experience that brings the listener closer to the
+                original inspiration of the musician and that appeals to several
+                senses.
+              </p>
+            </div>
             <div class="homepage__btn slideIn">
               <router-link :to="{ name: 'Tracklist' }" class="btn btn--icon">
                 {{ button }}
