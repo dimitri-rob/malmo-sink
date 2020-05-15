@@ -85,7 +85,8 @@ export default {
           service: "Spotify",
           logo: require("../assets/logo-spotify-1x.png"),
           logo2x: require("../assets/logo-spotify-2x.png"),
-          href: "#"
+          href:
+            "https://open.spotify.com/album/0Kq79jtO4iIY1Oyog1TP2b?si=ah2cz01vSdmVEFeUYCm94w"
         },
         {
           service: "Soundcloud",
@@ -97,13 +98,13 @@ export default {
           service: "Apple Music",
           logo: require("../assets/logo-applemusic-1x.png"),
           logo2x: require("../assets/logo-applemusic-2x.png"),
-          href: "#"
+          href: "https://music.apple.com/fr/album/sink/1512752617"
         },
         {
           service: "Deezer",
           logo: require("../assets/logo-deezer-1x.png"),
           logo2x: require("../assets/logo-deezer-2x.png"),
-          href: "#"
+          href: "https://www.deezer.com/fr/album/147191122"
         }
       ],
       title: "Crédits",
